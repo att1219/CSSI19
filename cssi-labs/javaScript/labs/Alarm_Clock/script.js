@@ -13,3 +13,36 @@
 // limitations under the License.
 
 console.log("script is running...");
+
+function myAlarm(wakeup)
+{
+  console.log("Hey, Adam, wake up! It's" + wakeup);
+}
+ myAlarm(" 6am")
+ 
+ function momAlarm(wakeup2)
+ {
+   console.log("Hey, Mom, wake up! It's" + wakeup2);
+ }
+  momAlarm(" 5:30am")
+
+function familyAlarm (wakeup, wakeup2)
+{
+    console.log("Hey, Adam, wake up! It's" + wakeup);
+    console.log("Hey, Mom, wake up! It's" + wakeup2);
+}
+familyAlarm ("6am","5:30am")
+
+function importantAlarm (Wakeup3) 
+{
+    return Wakeup3.toUpperCase();
+}
+console.log(importantAlarm("wake up, wake up, wake UP!!"))
+
+function snoozeAlarm (wakeup5)
+{
+    var newtime=wakeup5 + 1;
+    return "The alarm for "+wakeup5+" has been changed to "+newtime;
+
+}
+console.log(snoozeAlarm("6am"))
