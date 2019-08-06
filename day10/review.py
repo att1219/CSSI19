@@ -4,9 +4,9 @@ print f(2)
 print(3+4*6)
 print f(f(6))
 v=89
-print f(v)'''
+print f(v)
 
-'''Task 1
+Task 1
 
 def greater(x,y):
     if x>y:
@@ -17,9 +17,9 @@ def greater(x,y):
 x=float(raw_input("Enter your first number: "))
 y=float(raw_input("Enter your second number: "))
 
-print greater(x,y)'''
+print greater(x,y)
 
-'''Task 2
+Task 2
 def echo():
     x= raw_input("Enter a string: ")
     return x + x
@@ -66,7 +66,7 @@ k =[4,1,5,12,13]
 print "\nThe index of 5 in each list"
 #print "l =", l
 print "k =", k.index(5)
-print "j =", j.index(5)'''
+print "j =", j.index(5)
 
 #Counting to 10 from 1
 i = 1
@@ -96,4 +96,59 @@ while i <=10:
 
 v = ""
 while v != "hello":
-    v = raw_input("Enter a string: ")
+    v = raw_input("Enter a string: ")'''
+
+'''for i in range(1,10):
+    print i
+for i in range(1,21):
+    print i
+for i in range(2,21,2):
+    print i
+for i in range(1,21):
+    if i % 2 == 0:
+        print i
+for i in range(1,21):
+    if i % 2 == 1:
+        print i
+for i in "This is a string":
+    print i
+
+h = []
+
+for i in range(20):
+    h.append(0)
+print h, len(h)
+
+h[1]=1
+
+for i in range(2,20):
+    h[i] = h[i-1]
+print h    
+
+d={}
+b=dict()
+a= {1:2,2:1,3:3,4:5,5:4}
+c= {12:"Bob",89:"Jane"}
+
+print a[1]
+
+print c[89]
+
+c[72]="Joe"
+
+print c'''
+
+class Person:
+    def __init__(self,name):
+        self.name = name
+        self.age = 0
+    def birthday(self):
+        self.age += 1
+
+t= Person("Jane")
+print t.name, t.age
+s= Person("Roger")
+print s.name,s.age
+
+t.birthday()
+print t.name, t.age 
