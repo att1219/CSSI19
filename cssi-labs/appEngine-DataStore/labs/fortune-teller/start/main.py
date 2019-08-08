@@ -39,27 +39,37 @@ def get_fortune():
     fortunes=['You will find riches.',
             'You will die alone.',
             'Tomorrow will be your best day ever.',
-            'Your dream job will come offer an interview.',
+            'Your dream job will offer you an interview.',
             'You will meet your soulmate.',
             'You declare BANKRUPTCY!',
-            'Dark times ahead.',
+            'Dark times ahead my friend...',
             'A friend will betray you.',
-            'A lifelong friend will reveal themselves.']
+            'A lifelong friend will reveal themselves.',
+            'Keep your guard up.',]
     i = random.randint(0,len(fortunes)-1)
     random_fortune= fortunes[i]
     return random_fortune
 
 # Remember, you can get this by searching for jinja2 google app engine
-jinja_current_directory = ''
+jinja_current_directory = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    extensions=['jinja2.ext.autoescape'],
+    autoescape=True)
 
 class FortuneHandler(webapp2.RequestHandler):
     def get(self):
         # In part 2, instead of returning this string,
         # make a function call that returns a random fortune.
-        x = get_fortune()
-        self.response.write(x)
+        results_template = jinja_current_directory.get_template("templates/fortune-start.html")
+        self.response.write(results_template.render())
     # Add a post method
-    # def post(self):
+    def post(self):
+        x = get_fortune()
+        user_astro_sign = self.request.get("user_astrological_sign")
+        fortune_dict={'fortune':x, 'astro_sign':user_astro_sign}
+        end_template = jinja_current_directory.get_template("templates/fortune-results.html")
+        self.response.write(end_template.render(fortune_dict))
+     
 
 class HelloHandler(webapp2.RequestHandler):
     def get(self):
