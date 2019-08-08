@@ -34,6 +34,7 @@ import webapp2
 import os
 import random
 import jinja2
+import logging 
 
 def get_fortune():
     fortunes=['You will find riches.',
@@ -60,10 +61,12 @@ class FortuneHandler(webapp2.RequestHandler):
     def get(self):
         # In part 2, instead of returning this string,
         # make a function call that returns a random fortune.
+        logging.info("hi this is a message")
         results_template = jinja_current_directory.get_template("templates/fortune-start.html")
         self.response.write(results_template.render())
     # Add a post method
     def post(self):
+        logging.info("The users astro sign is " + 'user_astro_sign')
         x = get_fortune()
         user_astro_sign = self.request.get("user_astrological_sign")
         fortune_dict={'fortune':x, 'astro_sign':user_astro_sign}
