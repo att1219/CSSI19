@@ -19,13 +19,17 @@ body {
 }
 
 #row1 {
-  display: /* insert the necessery property */;
+  display: flex; /* insert the necessery property */
   height: 100px;
 }
 /* Style your second row below */
-
+#row2 {
+  display: flex;
+  height: 100px;
+}
 .pic {
   /* Insert the general styling that will apply to ALL images */
+
 }
 
 #m1 {
